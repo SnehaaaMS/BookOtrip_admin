@@ -1,0 +1,127 @@
+<div class="text-end">
+  <button type="button" class="btn btn-success waves-effect waves-light" data-bs-toggle="modal"
+    data-bs-target=".bs-example-modal-lg" (click)="ModalOpen(largeDataModal)">Add User</button>
+</div>
+
+<ng-template #largeDataModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title" id="myLargeModalLabel">{{ModalTitle}}</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+      (click)="modal.dismiss('Close click')">
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <app-access-user-operation [user]="user" [RolesList]="RolesList" (showNextStep)="showNextStep($event)"
+      *ngIf="ActivateAccessUserOperationsComp"></app-access-user-operation>
+    <!-- <ng-wizard [config]="config" (stepChanged)="stepChanged($event)">
+            <ng-wizard-step [title]="'User'" 
+                [canExit]="isValidFunctionReturnsBoolean.bind(this)">
+                <div class="tab-pane" id="user-details">
+                    <app-access-user-operation [user]="user" (showNextStep)="showNextStep($event)"
+                        *ngIf="ActivateAccessUserOperationsComp"></app-access-user-operation>
+                </div>
+            </ng-wizard-step>
+
+            <ng-wizard-step [title]="'role'" >
+                <span><app-access-user-role></app-access-user-role></span>
+            </ng-wizard-step>
+
+        </ng-wizard> -->
+
+    <!-- <ng-wizard [config]="wizardConfig">
+
+            <ng-wizard-step [title]="'Step 1'" [description]="'Seller Details'" [canEnter]="isValidTypeBoolean">
+              <ng-template [ngTemplateOutlet]="SellerContent"></ng-template>
+            </ng-wizard-step>
+
+            <ng-wizard-step [title]="'Step 2'" [description]="'Company Document'">
+              <ng-template [ngTemplateOutlet]="companyDocument"></ng-template>
+            </ng-wizard-step>
+
+            <ng-wizard-step [title]="'Step 3'" [description]="'Bank Details'"
+              [canEnter]="isValidFunctionReturnsObservable.bind(this)"
+              [canExit]="isValidFunctionReturnsBoolean.bind(this)">
+              <ng-template [ngTemplateOutlet]="bankDetail"></ng-template>
+            </ng-wizard-step>
+
+            <ng-wizard-step [title]="'Step 4'" [description]="'Confirm Detail'">
+              <ng-template [ngTemplateOutlet]="confirmDetail"></ng-template>
+            </ng-wizard-step>
+
+          </ng-wizard> -->
+
+  </div>
+</ng-template>
+
+<!-- <ng-template #confirmDetail>
+    <div class="tab-pane" id="confirm-detail">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="text-center">
+            <div class="mb-4">
+              <i class="mdi mdi-check-circle-outline text-success display-4"></i>
+            </div>
+            <div>
+              <h5>Confirm Detail</h5>
+              <p class="text-muted">If several languages coalesce, the grammar of the resulting</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template> -->
+
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-borderless mb-0">
+
+      <thead class="text-center">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Role</th>
+          <th>Active</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of UserList">
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phone}}</td>
+          <td>{{ transform(user.role) }}</td>
+          <td class="d-flex">
+           
+
+            <!-- <div dir="ltr" class="form-check-input form-switch form-switch-lg m-auto">
+              <input type="checkbox" id="activateUser" class="form-check-input" checked="true">
+            
+            </div> -->
+
+           
+              <div dir="ltr" class="form-check-input form-switch form-switch-lg m-auto">
+                <input type="checkbox" class="form-check-input" [(ngModel)]="user.active" (change)="onCheckboxChange(user)">
+              </div>
+            
+
+            
+              <button type="button" data-bs-toggle="modal"
+            data-bs-target=".bs-example-modal-lg" (click)="editClick(largeDataModal,user)"><i class="far fa-edit text-primary" ></i></button>
+          
+          
+
+         
+
+          </td>
+
+
+
+        </tr>
+
+
+      </tbody>
+    </table>
+  </div>
+</div>

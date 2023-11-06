@@ -1,0 +1,26 @@
+<p>description works!</p>
+
+<form>
+    <div class="d-flex justify-content-between mb-3">
+        <div class="form-group w-30">
+            <!-- <label for="country" class="mb-1">Country:</label>
+            <select class="form-control" formControlName="country" id="country">
+                <option *ngFor="let country of countryList" [value]="country.id">{{ country.name }}</option>
+            </select> -->
+            <label for="country">Country:</label>
+            <select name="" id="">
+                <option *ngFor="let country of countryList" [value]="country.id">{{country.name}}</option>
+            </select>
+        </div>
+        
+    </div>
+    
+    <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Heading">
+    </div>
+    <div class="mb-3">
+        <!-- Editor -->
+        <ckeditor [editor]="Editor" data=" <p>Content of the editor.</p> "></ckeditor>
+    </div>
+    <button class="btn btn-success" (click)="add()">save</button>
+</form>

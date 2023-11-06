@@ -1,0 +1,117 @@
+<div class="container">
+    <div class="card">
+      <div class="card-body">
+        <ul ngbNav #justifiednavpills="ngbNav" [activeId]="1" class="nav-pills nav-justified bg-light">
+          <li [ngbNavItem]="1">
+            <a ngbNavLink>
+              <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
+              <span class="d-none d-sm-block">Offers</span>
+            </a>
+            <ng-template ngbNavContent>
+              <ng-template [ngTemplateOutlet]="TabContent"></ng-template>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="2">
+            <a ngbNavLink>
+              <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
+              <span class="d-none d-sm-block">Contents</span>
+            </a>
+            <ng-template ngbNavContent>
+              <ng-template [ngTemplateOutlet]="TabContent1"></ng-template>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="3">
+            <a ngbNavLink>
+              <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
+              <span class="d-none d-sm-block">International</span>
+            </a>
+            <ng-template ngbNavContent>
+              <ng-template [ngTemplateOutlet]="TabContent2"></ng-template>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="4">
+            <a ngbNavLink>
+              <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
+              <span class="d-none d-sm-block">Domestic</span>
+            </a>
+            <ng-template ngbNavContent>
+              <ng-template [ngTemplateOutlet]="TabContent3"></ng-template>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="5">
+            <a ngbNavLink>
+              <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
+              <span class="d-none d-sm-block">Popular Destination</span>
+            </a>
+            <ng-template ngbNavContent>
+              <ng-template [ngTemplateOutlet]="TabContent4"></ng-template>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="6">
+            <a ngbNavLink>
+              <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
+              <span class="d-none d-sm-block">Airline</span>
+            </a>
+            <ng-template ngbNavContent>
+              <ng-template [ngTemplateOutlet]="TabContent5"></ng-template>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="7">
+            <a ngbNavLink>
+              <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
+              <span class="d-none d-sm-block">Description</span>
+            </a>
+            <ng-template ngbNavContent>
+              <ng-template [ngTemplateOutlet]="TabContent6"></ng-template>
+            </ng-template>
+          </li>
+        </ul>
+        <div [ngbNavOutlet]="justifiednavpills"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <ng-template #TabContent>
+    <p class="p-3 mb-0 text-muted">
+     <app-offers></app-offers>
+    </p>
+  </ng-template>
+
+  <ng-template #TabContent1>
+    <p class="p-3 mb-0 text-muted">
+     <app-offer-table></app-offer-table>
+    </p>
+  </ng-template>
+
+  <ng-template #TabContent2>
+    <p class="p-3 mb-0 text-muted">
+     <app-international></app-international>
+    </p>
+  </ng-template>
+
+  <ng-template #TabContent3>
+    <p class="p-3 mb-0 text-muted">
+    <app-domestic></app-domestic>
+    </p>
+  </ng-template>
+
+  <ng-template #TabContent4>
+    <p class="p-3 mb-0 text-muted">
+    <app-popular-destination></app-popular-destination>
+    </p>
+  </ng-template>
+
+  <ng-template #TabContent5>
+    <p class="p-3 mb-0 text-muted">
+      <app-airline></app-airline>
+    </p>
+  </ng-template>
+
+  <ng-template #TabContent6>
+    <p class="p-3 mb-0 text-muted">
+      <app-description></app-description>
+    </p>
+  </ng-template>
+
+ 

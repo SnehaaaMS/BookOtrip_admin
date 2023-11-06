@@ -1,0 +1,19 @@
+<div class="container">
+  <button (click)="saveDesign()">Save Design</button>
+  <button (click)="exportHtml()">Export</button>
+  <email-editor
+    [options]="options"
+    (loaded)="editorLoaded()"
+    (ready)="editorReady()"
+    #editor
+  ></email-editor>
+</div>
+
+
+<!-- <div class="container">
+  <button (click)="exportHtml()">Export</button>
+  <email-editor
+    (loaded)="editorLoaded($event)"
+    (ready)="editorReady($event)"
+  ></email-editor>
+</div>  -->

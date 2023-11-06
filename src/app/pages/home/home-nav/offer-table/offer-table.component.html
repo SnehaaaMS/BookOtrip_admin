@@ -1,0 +1,99 @@
+
+<form [formGroup]="countryForm">
+    <div class="col-sm-6 d-flex text end">
+        <!-- <div class="form-group">
+            <label for="heading">Heading:</label>
+            <input type="text" class="form-control" formControlName="heading" id="heading" />
+        </div> -->
+        <div class="form-group">
+            <label for="test">Select country</label>
+            <select class="form-control" formControlName="country" id="country">
+                <option *ngFor="let country of countryList" [value]="country.id">{{ country.name }}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="test">Select type</label>
+            <select class="form-control" formControlName="type" id="type">
+                <option *ngFor="let offer of offerList" [value]="offer.id">{{ offer.type }}</option>
+            </select>
+        </div>
+        <button type="button" class="btn btn-primary mt-4" (click)="getlist()">View</button>
+    </div>   
+</form>
+
+<!-- <div cdkDropList class="example-list mt-20" (cdkDropListDropped)="drop($event)">  
+	<div class="example-box" *ngFor="let movie of movies, index as i" cdkDrag>
+    <div class="drag-index">{{i+1}}</div>
+		<div class="w-10 drag-icon">
+      <i *ngIf="!movie.isDisable" class="material-icons disable">reorder</i>
+      <i  class="material-icons" cdkDragHandle>reorder</i>
+    </div>
+    <div class="w-100 drag-content">
+      <mat-checkbox (change)="movie.isDisable = !movie.isDisable">Click and drop only through icon</mat-checkbox>  
+    </div> 
+    <div class="w-10 delete-icon">
+      <button mat-icon-button>
+        <i class="material-icons" (click)="delete(i)">delete_outline</i>
+      </button>
+    </div>
+  </div>
+</div> -->
+
+<div class="container">
+    <div class="table-responsive">
+      <table class="table table-borderless mb-0">
+  
+        <thead class="text-center">
+          <tr>
+            <th>country</th>
+            <th>type</th>
+            <th>image_url</th>
+            <th>valid_date</th>
+            <th>button_label</th>
+            <th>button_url</th>
+  
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of filteredList">
+            <td>{{data.country}}</td>
+            <td>{{data.type}}</td>
+            <td>{{data.image_url}}</td>
+            <td>{{data.valid_date}}</td>
+            <td>{{data.button_label}}</td>
+            <td>{{data.button_url}}</td>
+            <!-- <td>{{ transform(user.role) }}</td> -->
+            <!-- <td class="d-flex"> -->
+             
+  
+              <!-- <div dir="ltr" class="form-check-input form-switch form-switch-lg m-auto">
+                <input type="checkbox" id="activateUser" class="form-check-input" checked="true">
+              
+              </div> -->
+  
+             
+                <!-- <div dir="ltr" class="form-check-input form-switch form-switch-lg m-auto">
+                  <input type="checkbox" class="form-check-input" [(ngModel)]="user.active" (change)="onCheckboxChange(user)">
+                </div> -->
+              
+  
+              
+                <!-- <button type="button" data-bs-toggle="modal"
+              data-bs-target=".bs-example-modal-lg" (click)="editClick(largeDataModal,user)"><i class="far fa-edit text-primary" ></i></button> -->
+            
+            
+  
+           
+  
+            <!-- </td> -->
+  
+  
+  
+          </tr>
+  
+  
+        </tbody>
+      </table>
+    </div>
+  </div>

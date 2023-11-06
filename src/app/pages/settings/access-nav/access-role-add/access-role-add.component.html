@@ -1,0 +1,230 @@
+
+<div class="row">
+    <div class="col-md-4 text-center">
+        <button type="button" class="btn btn-success fixed-dimension-button" (click)="showHiContent()">Add role</button>
+            <div class="mt-2" >
+                <ul class="li-none">
+                    <li *ngFor="let role of RolesList" class="p-1 mb-2 border shadow cpr" (click)="setValue(role)">{{ role.name }}</li>
+                </ul>
+            </div>
+    </div>
+
+
+    <div class="col-md-8">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div *ngIf="showHi">
+                <div class="mb-3">
+                    <input type="text" placeholder="Add role"  formControlName="name">
+                    <span>Updated on:</span>
+                </div> 
+                <div class="mb-3">
+                    <label for="description">Description</label>
+                    <input type="text" class="container" placeholder="Add description" id="description" formControlName="description">
+                </div>
+
+                <div class="mb-3">
+                    <label for="dashboard">Dashboard</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="dashboardCheckbox" formControlName="dashboard_view" checked>
+                        <label class="form-check-label" for="dashboardCheckbox">
+                            View
+                        </label>
+                    </div>
+                </div>
+                <div class="mb-3"><label for="cms">CMS</label></div>
+                <div class="mb-3">
+                    <label for="cityPermissions">City</label>
+                    <div class="form-check">
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="cityViewCheckbox" formControlName="cms_city_view" checked>
+                            <label class="form-check-label" for="cityViewCheckbox">View</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="cityModifyCheckbox" formControlName="cms_city_modify" checked>
+                            <label class="form-check-label" for="cityModifyCheckbox">Modify</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="cityAddCheckbox" formControlName="cms_city_add" checked>
+                            <label class="form-check-label" for="cityAddCheckbox">Add</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="cityPublishCheckbox" formControlName="cms_city_publish" checked>
+                            <label class="form-check-label" for="cityPublishCheckbox">Publish</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="AboutPermissions">About</label>
+                    <div class="form-check">
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="aboutViewCheckbox" formControlName="cms_about_view" checked>
+                            <label class="form-check-label" for="aboutViewCheckbox">View</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="aboutModifyCheckbox" formControlName="cms_about_modify" checked>
+                            <label class="form-check-label" for="aboutModifyCheckbox">Modify</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="aboutAddCheckbox" formControlName="cms_about_add" checked>
+                            <label class="form-check-label" for="aboutAddCheckbox">Add</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="aboutPublishCheckbox" formControlName="cms_about_publish" checked>
+                            <label class="form-check-label" for="aboutPublishCheckbox">Publish</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">                  
+                    <label for="AcivitiesPermissions">Activities</label>
+                    <div class="form-check">
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="activitiesViewCheckbox" formControlName="cms_activities_view" checked>
+                            <label class="form-check-label" for="activitiesViewCheckbox">View</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="activitiesModifyCheckbox" formControlName="cms_activities_modify" checked>
+                            <label class="form-check-label" for="activitiesModifyCheckbox">Modify</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="activitiesAddCheckbox" formControlName="cms_activities_add" checked>
+                            <label class="form-check-label" for="activitiesAddCheckbox">Add</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="activitiesPublishCheckbox" formControlName="cms_activities_publish" checked>
+                            <label class="form-check-label" for="activitiesPublishCheckbox">Publish</label>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="mb-3">                  
+                    <label for="InstructionsPermissions">Instructions</label>
+                    <div class="form-check">
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="InstructionsviewCheckbox" formControlName="cms_instructions_view" checked>
+                            <label class="form-check-label" for="InstructionsviewCheckbox">View</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="InstructionsmodifyCheckbox" formControlName="cms_instructions_modify" checked>
+                            <label class="form-check-label" for="InstructionsmodifyCheckbox">Modify</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="InstructionsaddCheckbox" formControlName="cms_instructions_add" checked>
+                            <label class="form-check-label" for="InstructionsaddCheckbox">Add</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="InstructionspublishCheckbox" formControlName="cms_instructions_publish" checked>
+                            <label class="form-check-label" for="InstructionspublishCheckbox">Publish</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">                  
+                    <label for="FAQPermissions">FAQ</label>
+                    <div class="form-check">
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="FAQviewCheckbox" formControlName="cms_faq_view" checked>
+                            <label class="form-check-label" for="FAQviewCheckbox">View</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="FAQmodifyCheckbox" formControlName="cms_faq_modify" checked>
+                            <label class="form-check-label" for="FAQmodifyCheckbox">Modify</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="FAQaddCheckbox" formControlName="cms_faq_add" checked>
+                            <label class="form-check-label" for="FAQaddCheckbox">Add</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="FAQpublishCheckbox" formControlName="cms_faq_publish" checked>
+                            <label class="form-check-label" for="FAQpublishCheckbox">Publish</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">                  
+                    <label for="ReviewsPermissions">Reviews</label>
+                    <div class="form-check">
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="ReviewsviewCheckbox" formControlName="cms_reviews_view" checked>
+                            <label class="form-check-label" for="ReviewsviewCheckbox">View</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="ReviewsmodifyCheckbox" formControlName="cms_reviews_modify" checked>
+                            <label class="form-check-label" for="ReviewsmodifyCheckbox">Modify</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="ReviewsaddCheckbox" formControlName="cms_reviews_add" checked>
+                            <label class="form-check-label" for="ReviewsaddCheckbox">Add</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="ReviewspublishCheckbox" formControlName="cms_reviews_publish" checked>
+                            <label class="form-check-label" for="publishCheckbox">Publish</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3"><label for="cms">Settings</label></div>  
+                <div class="mb-3">                  
+                    <label for="AccessPermissions">Access mangement</label>
+                    <div class="form-check">
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="AccessviewCheckbox" formControlName="settings_access_management_view" checked>
+                            <label class="form-check-label" for="AccessviewCheckbox">View</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="AccessmodifyCheckbox" formControlName="settings_access_management_modify" checked>
+                            <label class="form-check-label" for="AccessmodifyCheckbox">Modify</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="AccessaddCheckbox" formControlName="settings_access_management_add" checked>
+                            <label class="form-check-label" for="AccessaddCheckbox">Add</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">                  
+                    <label for="TemplatePermissions">Template</label>
+                    <div class="form-check">
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="TemplateviewCheckbox" formControlName="settings_templates_view" checked>
+                            <label class="form-check-label" for="TemplateviewCheckbox">View</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="TemplatemodifyCheckbox" formControlName="settings_templates_modify" checked>
+                            <label class="form-check-label" for="TemplatemodifyCheckbox">Modify</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="TemplateaddCheckbox" formControlName="settings_templates_add" checked>
+                            <label class="form-check-label" for="TemplateaddCheckbox">Add</label>
+                        </div>                    
+                    </div>
+                </div>
+
+                <div class="mb-3">                  
+                    <label for="IntegrationPermissions">Integration</label>
+                    <div class="form-check">
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="IntegrationviewCheckbox" formControlName="settings_integrations_view" checked>
+                            <label class="form-check-label" for="IntegrationviewCheckbox">View</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="IntegrationmodifyCheckbox" formControlName="settings_integrations_modify" checked>
+                            <label class="form-check-label" for="IntegrationmodifyCheckbox">Modify</label>
+                        </div>
+                        <div class="form-check-inline pe-3">
+                            <input class="form-check-input" type="checkbox" id="IntegrationaddCheckbox" formControlName="settings_integrations_add" checked>
+                            <label class="form-check-label" for="IntegrationaddCheckbox">Add</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-3 text-end">
+                    <button class="btn btn-primary w-sm waves-effect waves-light" type="submit">Save</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

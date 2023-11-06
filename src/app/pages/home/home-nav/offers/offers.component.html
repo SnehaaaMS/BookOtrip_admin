@@ -1,0 +1,51 @@
+<form [formGroup]="offerForm">
+    <div class="card mb-4">
+        <div class="d-flex justify-content-between mb-3">
+            <div class="form-group w-50">
+                <label for="country" class="mb-1">Country:</label>
+                <select class="form-control" formControlName="country" id="country">
+                    <option *ngFor="let country of countryList" [value]="country.id">{{ country.name }}</option>
+                </select>
+            </div>
+            <div class="form-group w-50">
+                <label for="type" class="mb-1">Offer type:</label>
+                <select class="form-control" formControlName="type" id="type">
+                    <option *ngFor="let offer of offerList" [value]="offer.id">{{ offer.type }}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="form-group mb-3">
+                <label for="image_url" class="mb-1">Upload Image:</label>
+                <input type="text" class="form-control" formControlName="image_url" id="image_url" />
+            </div>
+            <div class="form-group mb-3">
+                <label for="heading" class="mb-1">Heading:</label>
+                <input type="text" class="form-control" formControlName="heading" id="heading" />
+            </div>
+            <div class="form-group mb-3">
+                <label for="sub_heading" class="mb-1">Sub Heading:</label>
+                <input type="text" class="form-control" formControlName="sub_heading" id="sub_heading" />
+            </div>
+            <div class="form-group mb-3">
+                <label for="valid_date" class="mb-1">Date Picker:</label>
+                <input type="date" class="form-control" formControlName="valid_date" id="valid_date" />
+            </div>
+            <div class="d-flex mb-3">
+                <div class="form-group col-md-4">
+                    <label for="button_label" class="mb-1">Button Label:</label>
+                    <input type="text" class="form-control" formControlName="button_label" id="button_label" />
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="button_url" class="mb-1">Button URL:</label>
+                    <input type="text" class="form-control" formControlName="button_url" id="button_url" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex">
+        <button type="button" class="btn btn-primary mt-4" (click)="addform()">Add</button>
+        <button type="submit" class="btn btn-primary mt-4" (click)="SaveValue()">Save</button>
+    </div>
+</form>

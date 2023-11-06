@@ -1,0 +1,58 @@
+<form [formGroup]="interNatForm">
+    <div class="card mb-4">
+        <div class="d-flex justify-content-between mb-3">
+            <div class="form-group w-30">
+                <label for="country" class="mb-1">Country:</label>
+                <select class="form-control" formControlName="country" id="country">
+                    <option *ngFor="let country of countryList" [value]="country.id">{{ country.name }}</option>
+                </select>
+            </div>
+            <div class="form-group w-30">
+                <label for="from_code" class="mb-1">From code:</label>
+                <input list="from_code"  class="form-control"
+                    (keyup)="get_codeList(interNatForm.value.from_code)" formControlName="from_code" id="from_code" />
+                <ul class="list-group code-list" *ngIf="codeList.length>0">
+                    <li class="list-group-item" *ngFor="let item of codeList">{{item.code}}</li>
+                </ul>
+            </div>
+            <div class="form-group w-30">
+                <label for="to_code" class="mb-1">To code:</label>
+                <input list="to_code" type="search" class="form-control"
+                    (keyup)="get_codeList(interNatForm.value.to_code)" formControlName="to_code" id="to_code" />
+                    <ul class="list-group code-list" *ngIf="codeList.length>0">
+                        <li class="list-group-item" *ngFor="let item of codeList">{{item.code}}</li>
+                    </ul>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="form-group mb-3">
+                <label for="from_city" class="mb-1">From city</label>
+                <input type="text" class="form-control" formControlName="from_city" id="from_city" />
+            </div>
+            <div class="form-group mb-3">
+                <label for="to_city" class="mb-1">To city</label>
+                <input type="text" class="form-control" formControlName="to_city" id="to_city" />
+            </div>
+            <div class="form-group mb-3">
+                <label for="date" class="mb-1">Date:</label>
+                <input type="date" class="form-control" formControlName="date" id="date" size="10" />
+            </div>
+            <div class="form-group mb-3">
+                <label for="label" class="mb-1">Label:</label>
+                <input type="text" class="form-control" formControlName="label" id="label" />
+            </div>
+            <div class="form-group mb-3">
+                <label for="price" class="mb-1">Price:</label>
+                <input type="text" class="form-control" formControlName="price" id="price" />
+            </div>
+            <div class="form-group mb-3">
+                <label for="url" class="mb-1">URL:</label>
+                <input type="text" class="form-control" formControlName="url" id="url" />
+            </div>
+        </div>
+    </div>
+    <div class="d-flex">
+        <button type="button" class="btn btn-primary mt-4" (click)="addform()">Add</button>
+    </div>
+</form>
